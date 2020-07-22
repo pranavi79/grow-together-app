@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "647732106854",
+    "firebase_url": "https://pehlasahiapp.firebaseio.com",
+    "project_id": "pehlasahiapp",
+    "storage_bucket": "pehlasahiapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647732106854:android:2dc12df27bc3bfc5a4bfa7",
+        "android_client_info": {
+          "package_name": "com.example.pehlasahiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647732106854-r2f5v78ntu4poj2sjrj8uar8574nv40i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pehlasahiapp",
+            "certificate_hash": "adf9fa9d0e6b0eb521e470bd8bf7f12aeae8364d"
+          }
+        },
+        {
+          "client_id": "647732106854-mseup580j2gcgaom6ihstqmlmj825l1a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuQIzHUHRfYZ3tHRJERmE9g8czILqzYag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647732106854-mseup580j2gcgaom6ihstqmlmj825l1a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
