@@ -32,7 +32,7 @@ Vulnerabilities-.
   Chats or passwords saved as plaintexts could be a breach to privacy and security.We ensure security by storing encrypted passwords and chats.
    
 CI/CD-
-https://github.com/pranavi79/grow-together-app/blob/chatbox/chatbox.jpeg
+![chatbox]https://github.com/pranavi79/grow-together-app/blob/chatbox/chatbox.jpeg
     
 FUTURE DEVELOPMENT
     • To include an option to sign up as a corporate (for example, a restaurant wanting to give away extra food can ask for volunteers for the same.)
