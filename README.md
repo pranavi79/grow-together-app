@@ -33,7 +33,7 @@ Vulnerabilities-.
    
 CI/CD-
 
-https://github.com/pranavi79/grow-together-app/blob/chatbox/chatbox.jpeg
+https://github.com/pranavi79/grow-together-app/blob/chatbox/chatbox.jpeg?raw=true
     
 FUTURE DEVELOPMENT
     • To include an option to sign up as a corporate (for example, a restaurant wanting to give away extra food can ask for volunteers for the same.)
