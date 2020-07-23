@@ -28,6 +28,7 @@ Tech Stack-
         3.GitHub
     •Firebase
     •Android Studio SDK
+    •Flutter SDK
 Vulnerabilities-.
   Chats or passwords saved as plaintexts could be a breach to privacy and security.We ensure security by storing encrypted passwords and chats.
    
