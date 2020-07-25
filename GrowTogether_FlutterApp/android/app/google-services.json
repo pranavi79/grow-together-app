@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "81660545037",
+    "firebase_url": "https://sahiapp-19106.firebaseio.com",
+    "project_id": "sahiapp-19106",
+    "storage_bucket": "sahiapp-19106.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81660545037:android:c38b71a61b8168aff3ad44",
+        "android_client_info": {
+          "package_name": "com.example.dashboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81660545037-ckgvifl7bouqnhr9r22h4a6uvp86v4fg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHd52zpCAoO-P1f7ygq9Dsj9CThXn8EcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81660545037-ckgvifl7bouqnhr9r22h4a6uvp86v4fg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
