@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'Dashboard.dart';
+import 'LogIn.dart';
 
 class Posting extends StatelessWidget {
   @override
@@ -7,6 +11,7 @@ class Posting extends StatelessWidget {
       title: 'Grow Together',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.blue[200],
         appBar: AppBar(
           title: Text(
             "Create a New Event",
@@ -20,21 +25,30 @@ class Posting extends StatelessWidget {
                   child: Text('Dashboard'),
                   value: 3,
                 ),
-                PopupMenuItem(
-                  child: Text("My Profile"),
-                  value: 1,
-                ),
+                // PopupMenuItem(
+                //   child: Text("My Profile"),
+                //   value: 1,
+                // ),
                 PopupMenuItem(
                   value: 2,
                   child: Text("Logout"),
                 ),
               ],
               onSelected: (value) {
-                if (value == 1) {
-                  //add links to my profile
-                } else if (value == 3) {
-                  //add links to dasboard
+                // if (value == 1) {
+                //   //add links to my profile
+                // } else if (value == 3) {
+                if (value == 3) {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              new AppTabBar())); //add links to dasboard
                 } else {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) => new LogIn()));
                   //add link to logout
                 }
               },
@@ -47,6 +61,23 @@ class Posting extends StatelessWidget {
   }
 }
 
+final kBoxDecorationStyle = BoxDecoration(
+  //color: Colors.white,
+  borderRadius: BorderRadius.circular(200.0),
+  // boxShadow: [
+  //   BoxShadow(
+  //     color: Colors.black12,
+  //     blurRadius: 6.0,
+  //     offset: Offset(0, 2),
+  //   ),
+  // ],
+);
+
+final kHintTextStyle = TextStyle(
+  color: Colors.grey,
+  fontFamily: 'OpenSans',
+);
+
 class NewEventPost extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new EventPostState();
@@ -58,6 +89,9 @@ class EventPostState extends State<NewEventPost> {
   String descriptionOfPost = '';
   String city = '';
   String locality = '';
+  String birthDateInString;
+  var birthDate;
+  bool isDateSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -72,10 +106,11 @@ class EventPostState extends State<NewEventPost> {
                 children: <Widget>[
                   TextFormField(
                     decoration: InputDecoration(
+                        fillColor: Colors.white,
                         labelText: 'Enter Title of Event',
                         hintText: 'Title',
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+                            borderRadius: BorderRadius.circular(200.0),
                             borderSide: BorderSide())),
                     maxLength: 20,
                     onSaved: (newValue) {
@@ -102,7 +137,7 @@ class EventPostState extends State<NewEventPost> {
                                 labelText: 'Enter City',
                                 hintText: 'City',
                                 border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
+                                    borderRadius: BorderRadius.circular(200.0),
                                     borderSide: BorderSide())),
                             onSaved: (newValue) {
                               setState(() {
@@ -127,7 +162,7 @@ class EventPostState extends State<NewEventPost> {
                                 labelText: 'Enter Locality',
                                 hintText: 'Locality',
                                 border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
+                                    borderRadius: BorderRadius.circular(200.0),
                                     borderSide: BorderSide())),
                             onSaved: (newValue) {
                               setState(() {
@@ -145,27 +180,74 @@ class EventPostState extends State<NewEventPost> {
                       )
                     ],
                   ),
-                  TextFormField(
-                    minLines: 3,
-                    maxLines: null,
-                    decoration: InputDecoration(
-                        labelText: 'Enter Description of Event',
-                        hintText: 'Description',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                            borderSide: BorderSide())),
-                    keyboardType: TextInputType.multiline,
-                    onSaved: (newValue) {
-                      setState(() {
-                        descriptionOfPost = newValue;
-                      });
-                    },
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return "Enter Description";
-                      }
-                      return null;
-                    },
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      minLines: 3,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          labelText: 'Enter Description of Event',
+                          hintText: 'Description',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(200.0),
+                              borderSide: BorderSide())),
+                      keyboardType: TextInputType.multiline,
+                      onSaved: (newValue) {
+                        setState(() {
+                          descriptionOfPost = newValue;
+                        });
+                      },
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return "Enter Description";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  // SizedBox(height: 10.0),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    decoration: kBoxDecorationStyle,
+                    height: 60.0,
+                    child: TextField(
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'OpenSans',
+                      ),
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(14.0),
+                        prefixIcon: IconButton(
+                            icon: Icon(
+                              Icons.calendar_today,
+                              color: Colors.grey,
+                            ),
+                            onPressed: () async {
+                              final datePick = await showDatePicker(
+                                  context: context,
+                                  initialDate: new DateTime.now(),
+                                  firstDate: new DateTime(1900),
+                                  lastDate: new DateTime(2100));
+                              if (datePick != null && datePick != birthDate) {
+                                setState(() {
+                                  birthDate = datePick;
+                                  isDateSelected = true;
+
+                                  // put it here
+                                  return birthDateInString =
+                                      "${birthDate.month}/${birthDate.day}/${birthDate.year}"; // 08/14/2019
+                                });
+                              }
+                            }),
+                        hintText: 'Event date in mm/dd/yyyy',
+                        hintStyle: kHintTextStyle,
+                      ),
+                      controller: TextEditingController(
+                        text: birthDateInString,
+                      ),
+                    ),
                   ),
                   new RaisedButton(
                       color: Colors.blue[700],

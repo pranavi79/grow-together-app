@@ -16,7 +16,7 @@ Features-
         → Events- Which have already been planned with the respective details of date time and venue.
         → Issues- Which need to be organised.
     • THE CHAT BOX
-        Interested users would be directly be sent to the specific chat box to contact the organiser and other interested volunteers once they show their interest.Chatbox will be a temporary feature,which will automatically dissolve after the event.Will also have a report feature.
+        Volunteers can directly message the person/ NGO who has put up the issue and can discuss the issue and solution further. 
   Workflow-
      • Organizer client on signing up/signing-in will be able to post about an event by filling necessary details.They will be able to reach potential clients via group chat.
      • Volunteer client on signing up/signing-in will be taken to the main page which will have listing of various charity events with details like date,time,place and issue.For further details,they can personally contact the host via a built-in group chat.

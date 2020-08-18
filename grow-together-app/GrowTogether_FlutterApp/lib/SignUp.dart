@@ -20,6 +20,7 @@ String birthDateInString;
 var birthDate;
 bool isDateSelected;
 var _on = true;
+
 final kHintTextStyle = TextStyle(
   color: Colors.grey,
   fontFamily: 'OpenSans',

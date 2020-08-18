@@ -66,10 +66,10 @@ class MyDefaultTabController extends StatelessWidget {
           actions: <Widget>[
             PopupMenuButton(
               itemBuilder: (context) => [
-                PopupMenuItem(
-                  child: Text("My Profile"),
-                  value: 1,
-                ),
+                // PopupMenuItem(
+                //   child: Text("My Profile"),
+                //   value: 1,
+                // ),
                 PopupMenuItem(
                   value: 2,
                   child: Text("Logout"),
